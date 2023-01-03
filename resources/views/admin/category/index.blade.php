@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.dashboard')
 
 @section('page-header')
 <div class="row m-2 d-flex justify-content-center">
@@ -6,10 +6,10 @@
 		<a href="#" class="bg-success p-2 text-white float-end">Categories</a>
 	</h4>
 </div>
+
 @endsection
 @section('content')
 
-</div> -->
 <div class="card text-center">
   <div class="card-header">
   	Categories
