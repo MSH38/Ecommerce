@@ -36,11 +36,12 @@ Route::middleware('auth')->group(function () {
 });
 Route::prefix('admin')->middleware('auth','isAdmin')->group(function () {
     Route::get('/dashboard', function () {return view('admin.dashboard');});
-    
+
     //category routes
     Route::get('/category',[CategoryController::class, 'index']);
     Route::get('/category/create',[CategoryController::class, 'create']);
-    Route::post('/category',[CategoryController::class, 'store']);
+    
+    Route::post('/category',[CategoryController::class,'store'])->name("houda");
 
 });
 require __DIR__.'/auth.php';

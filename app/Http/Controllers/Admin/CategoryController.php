@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Http\Requests\CategoryFormRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -22,7 +24,7 @@ class CategoryController extends Controller
         $validatedData = $request->validated();
         $category = new Category;
         $category->name = $validatedData['name'];
-        $category->slug = Str::slug($validatedData['slug']);
+        $category->slug = Str::slug($validatedData['name']);
         $category->description = $validatedData['description'];
         if($request->hasFile('image')){
             $file = $request->file('image');
@@ -31,12 +33,36 @@ class CategoryController extends Controller
             $file->move('uploads/category/',$filename);
             $category->image = $filename;
         }
-
         $category->meta_data = $validatedData['meta_data'];
         $category->meta_keywords = $validatedData['meta_keywords'];
-        $category->meta_description= $validatedData['meta_description'];
-        $category->status= $request->status == true ? '1':'0';
+        $category->meta_description = $validatedData['meta_description'];
         $category->save();
-        return redirect('admin/category')->with('message','Category Added Successfuly');
+        return redirect('admin/category');
+
     }
+    // public function store(Request $request, Category $category)
+    // {
+
+        // $validator =  Validator::make($request->all(), [
+        //     'name' => ['required', 'string'],
+        //     'slug'  => ['required', 'string'],
+        //     'description' => ['required'],
+        //     'image' => ['nullable', 'mimes:jpg,jpeg,png'],
+        //     'meta_data' => ['required', 'string'],
+        //     'meta_keywords' => ['required', 'string'],
+        //     'meta_description' => ['required', 'string'],
+        // ]);
+
+
+        //  $asd = $request->all() ;
+
+        // if (isset($asd["image"])) {
+        //     $request->file('image')->store('categories');
+        //     $asd["image"] = $request->file('image')->hashName();
+        // }
+
+        // $category->create($request->all());
+
+        // return redirect('admin/category');
+    // }
 }

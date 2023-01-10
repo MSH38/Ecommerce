@@ -16,10 +16,10 @@
 			<img src="{{URL::asset('assets/img/loader.svg')}}" class="loader-img" alt="Loader">
 		</div>
 		<!-- /Loader -->
-		@include('layouts.main-sidebar')		
+		@include('layouts.main-sidebar')
 		<!-- main-content -->
 		<div class="main-content app-content">
-			@include('layouts.main-header')			
+			@include('layouts.main-header')
 			<!-- container -->
 			<div class="container-fluid">
 				@yield('page-header')
@@ -27,7 +27,7 @@
 				@include('layouts.sidebar')
 				@include('layouts.models')
             	@include('layouts.footer')
-				@include('layouts.footer-scripts')	
+				@include('layouts.footer-scripts')
 				<script src="{{URL::asset('assets/plugins/chart.js/Chart.bundle.min.js')}}"></script>
 				<!-- Moment js -->
 				<script src="{{URL::asset('assets/plugins/raphael/raphael.min.js')}}"></script>
@@ -45,10 +45,12 @@
 				<script src="{{URL::asset('assets/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
 				<script src="{{URL::asset('assets/js/modal-popup.js')}}"></script>
 				<!--Internal  index js -->
-				<!-- <script src="{{URL::asset('assets/js/index.js')}}"></script>
-				<script src="{{URL::asset('assets/js/jquery.vmap.sampledata.js')}}"></script> -->
-				<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+				{{-- <script src="{{URL::asset('assets/js/index.js')}}"></script> --}}
+				{{-- <script src="{{URL::asset('assets/js/jquery.vmap.sampledata.js')}}"></script> --}}
+				<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script> -->
+				{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> --}}
+				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
+                @livewireScripts
 	</body>
 </html>
